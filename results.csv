@@ -1,0 +1,7 @@
+"Benchmark","Mode","Threads","Samples","Score","Score Error (99,9%)","Unit","Param: size"
+"org.example.SelectBenchmark.benchmarkArraysSort","thrpt",1,3,"89,801476","87,381069","ops/ms",1000
+"org.example.SelectBenchmark.benchmarkArraysSort","thrpt",1,3,"1,016573","0,085426","ops/ms",10000
+"org.example.SelectBenchmark.benchmarkArraysSort","thrpt",1,3,"0,161508","0,418890","ops/ms",100000
+"org.example.SelectBenchmark.benchmarkDeterministicSelect","thrpt",1,3,"19,223868","153,669743","ops/ms",1000
+"org.example.SelectBenchmark.benchmarkDeterministicSelect","thrpt",1,3,"0,678265","6,727075","ops/ms",10000
+"org.example.SelectBenchmark.benchmarkDeterministicSelect","thrpt",1,3,"0,027773","0,275062","ops/ms",100000
