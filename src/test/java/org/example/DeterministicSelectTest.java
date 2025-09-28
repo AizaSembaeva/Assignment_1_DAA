@@ -1,17 +1,17 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 import java.util.Random;
-import static org.junit.jupiter.api.Assertions.*;
 
-public class DeterministicSelectTest {
+class DeterministicSelectTest {
 
     @Test
     void testSmallArray() {
         int[] arr = {7, 2, 9, 1, 5};
         Metrics m = new Metrics();
-        int result = DeterministicSelect.select(arr, 2, m); // 3-й по величине
+        int result = DeterministicSelect.select(arr, 2, m);
         Arrays.sort(arr);
         assertEquals(arr[2], result);
     }
@@ -30,11 +30,9 @@ public class DeterministicSelectTest {
         int[] arr = rnd.ints(100, -1000, 1000).toArray();
         int[] expected = arr.clone();
         Arrays.sort(expected);
-
         Metrics m = new Metrics();
         int k = 50;
         int result = DeterministicSelect.select(arr, k, m);
-
         assertEquals(expected[k], result);
     }
 
@@ -45,12 +43,33 @@ public class DeterministicSelectTest {
             int[] arr = rnd.ints(50, -500, 500).toArray();
             int[] expected = arr.clone();
             Arrays.sort(expected);
-
             int k = rnd.nextInt(arr.length);
             Metrics m = new Metrics();
             int result = DeterministicSelect.select(arr, k, m);
-
             assertEquals(expected[k], result);
         }
+    }
+
+    @Test
+    void testKOutOfBounds() {
+        int[] arr = {1, 2, 3};
+        Metrics m = new Metrics();
+        assertThrows(IllegalArgumentException.class, () -> DeterministicSelect.select(arr, -1, m));
+        assertThrows(IllegalArgumentException.class, () -> DeterministicSelect.select(arr, 3, m));
+    }
+
+    @Test
+    void testAllEqualElements() {
+        int[] arr = {5, 5, 5, 5};
+        Metrics m = new Metrics();
+        int result = DeterministicSelect.select(arr, 2, m);
+        assertEquals(5, result);
+    }
+
+    @Test
+    void testEmptyArray() {
+        int[] arr = {};
+        Metrics m = new Metrics();
+        assertThrows(IllegalArgumentException.class, () -> DeterministicSelect.select(arr, 0, m));
     }
 }

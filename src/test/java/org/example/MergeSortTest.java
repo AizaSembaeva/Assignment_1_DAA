@@ -34,6 +34,30 @@ class MergeSortTest {
     }
 
     @Test
+    void testSingleElement() {
+        int[] arr = {42};
+        Metrics m = new Metrics();
+        MergeSort.sort(arr, m);
+        assertArrayEquals(new int[]{42}, arr);
+    }
+
+    @Test
+    void testAllEqualElements() {
+        int[] arr = {5, 5, 5, 5};
+        Metrics m = new Metrics();
+        MergeSort.sort(arr, m);
+        assertArrayEquals(new int[]{5, 5, 5, 5}, arr);
+    }
+
+    @Test
+    void testReverseArray() {
+        int[] arr = {5, 4, 3, 2, 1};
+        Metrics m = new Metrics();
+        MergeSort.sort(arr, m);
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, arr);
+    }
+
+    @Test
     void testRandomArray() {
         Random rnd = new Random();
         int[] arr = rnd.ints(1000, 0, 10000).toArray();

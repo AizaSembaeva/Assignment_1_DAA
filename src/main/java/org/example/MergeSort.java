@@ -7,6 +7,8 @@ public class MergeSort {
     private static final int CUTOFF = 16;
 
     public static void sort(int[] arr, Metrics metrics) {
+        if (arr == null) throw new NullPointerException("Array is null");
+        if (arr.length <= 1) return;
         int[] buffer = new int[arr.length];
         sort(arr, buffer, 0, arr.length - 1, metrics);
     }

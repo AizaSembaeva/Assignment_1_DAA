@@ -63,6 +63,20 @@ public class ClosestPairTest {
         assertTrue(m.getComparisons() > 0, "Comparisons should be tracked");
     }
 
+    @Test
+    void testSinglePoint() {
+        ClosestPair.Point[] pts = {new ClosestPair.Point(0, 0)};
+        Metrics m = new Metrics();
+        assertThrows(IllegalArgumentException.class, () -> ClosestPair.closestPair(pts, m));
+    }
+
+    @Test
+    void testNoPoints() {
+        ClosestPair.Point[] pts = {};
+        Metrics m = new Metrics();
+        assertThrows(IllegalArgumentException.class, () -> ClosestPair.closestPair(pts, m));
+    }
+
     private double bruteForce(ClosestPair.Point[] pts) {
         double minDist = Double.POSITIVE_INFINITY;
         for (int i = 0; i < pts.length; i++) {
