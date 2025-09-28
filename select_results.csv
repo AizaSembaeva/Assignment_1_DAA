@@ -1,0 +1,6 @@
+algorithm,case,n,time,comparisons,allocations,maxDepth
+Select,random,100,1360800,1466,253,2
+Select,random,500,968200,7539,1440,3
+Select,random,1000,688600,31338,7091,4
+Select,random,5000,4126300,150278,32277,5
+Select,random,10000,8731800,650042,137376,5
