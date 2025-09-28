@@ -1,0 +1,6 @@
+algorithm,case,n,time,comparisons,allocations,maxDepth
+ClosestPair,random,100,6154900,132,0,6
+ClosestPair,random,500,1450200,853,0,8
+ClosestPair,random,1000,3257600,1756,0,9
+ClosestPair,random,5000,9660400,6759,0,12
+ClosestPair,random,10000,14428800,13584,0,13
